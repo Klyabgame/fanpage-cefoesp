@@ -1,0 +1,16 @@
+<div>
+    <section class="flex flex-col md:flex-row justify-between p-0 md:p-4 items-center mx-">
+        <div class="w-full md:w-[20%] flex  items-center gap-4 cursor-pointer hover:text-blue-700  ">
+
+            <img class="" [src]="environment.URL_LOGO_CEFOESP" alt="logo-cefoesp">
+
+        </div>
+
+        <ul class="flex gap-2 md:gap-4 p-2  ">
+            @for (item of routerTitle(); track $index) {
+                <li class=" hover:text-blue-700   font-bold text-xs md:text-sm  "><a [routerLink]="item.path" routerLinkActive="text-white bg-black p-1 md:p-2 rounded-sm">{{item.title }} </a></li>
+            }
+
+        </ul>
+    </section>
+</div>

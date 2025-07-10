@@ -1,0 +1,17 @@
+<!-- Modal -->
+@if (showModal() === true) {
+<div class="fixed inset-0 flex items-center justify-center z-50 ">
+    <div class="modal modal-open">
+        <div class="modal-box relative">
+            <h2 class="text-2xl font-bold">¡CURSOS DISPONIBLES!</h2>
+            <p class="mt-4">Tenemos este mes de <span class="font-bold">JULIO</span> el Inicio de los siguientes cursos:</p>
+            <p class="mt-4 font-bold">CURSO DE FORMACION BASICA: <span class="text-yellow-800"> {{fechaCurso.fechaCursoBasico.INICIO}}</span> </p>
+            <p class="mt-4 font-bold">CURSO DE PERFECCIONAMIENTO: <span class="text-yellow-800"> {{fechaCurso.fechaCursoPerfeccionamiento.INICIO}}</span></p>
+            <div class="modal-action">
+                <button routerLink="/contact" class="btn bg-green-600 text-white hover:bg-green-700">Contactanos</button>
+                <button (click)="closeModal()" class="btn btn-primary">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+}
