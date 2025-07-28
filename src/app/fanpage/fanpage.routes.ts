@@ -5,6 +5,7 @@ import { CursosPageComponent } from './pages/cursos-page/cursos-page.component';
 import { AboutMePageComponent } from './pages/about-me-page/about-me-page.component';
 import { ContactanosPageComponent } from './pages/contactanos-page/contactanos-page.component';
 import { TestimoniosPageComponent } from './pages/testimonios-page/testimonios-page.component';
+import { HorarioPageComponent } from './pages/horario-page/horario-page.component';
 
 export const layoutRoutes: Routes = [
     {
@@ -13,30 +14,34 @@ export const layoutRoutes: Routes = [
         children: [
             {
                 path: 'main',
-                title:'HOME',
+                title: 'HOME',
                 component: HomePageComponent
             },
             {
                 path: 'about',
-                title:'CONOCENOS',
+                title: 'CONOCENOS',
                 component: AboutMePageComponent
             },
             {
                 path: 'cursos',
-                title:'CURSOS',
+                title: 'CURSOS',
                 component: CursosPageComponent
             },
             {
                 path: 'testimonios',
-                title:'TESTIMONIOS',
+                title: 'TESTIMONIOS',
                 component: TestimoniosPageComponent
-            }, 
+            },
             {
                 path: 'contact',
-                title:'CONTACTANOS',
+                title: 'CONTACTANOS',
                 component: ContactanosPageComponent
             },
-            
+            {
+                path: 'horario',
+                component: HorarioPageComponent
+            },
+
             {
                 path: '**',
                 redirectTo: 'main'

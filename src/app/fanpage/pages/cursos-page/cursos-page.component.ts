@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { FechasCursos } from '../../../shared/components/utils';
+import { Component, inject } from '@angular/core';
+import { FechasCursos } from '../../../shared/utils';
+import { rxResource } from '@angular/core/rxjs-interop';
+import { HorarioService } from '../../services/horario.service';
 
 @Component({
   selector: 'app-cursos-page',
@@ -9,6 +11,19 @@ import { FechasCursos } from '../../../shared/components/utils';
 })
 export class CursosPageComponent {
 
-  horario= FechasCursos;
+  //horario= FechasCursos;
+   private horarioService = inject(HorarioService);
+
+  fechaCursoBasic = rxResource({
+    loader: () => {
+      return this.horarioService.getCourseBasic();
+    }
+  });
+
+  fechaCursoPerfec = rxResource({
+    loader: () => {
+      return this.horarioService.getCoursePerfec();
+    }
+  });
 
 }

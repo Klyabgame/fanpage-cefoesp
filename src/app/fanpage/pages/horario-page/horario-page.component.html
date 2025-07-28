@@ -1,0 +1,22 @@
+<div class="flex flex-col  relative mt-43  md:mt-37 w-full min-h-screen">
+    <h1 class="text-center text-5xl font-semibold  mt-4 mb-10  bg-black text-white p-4">PROGRAMAR CURSOS - CEFOESP</h1>
+    <section class="p-4">
+        <h1 class=" font-bold text-2xl">CURSO DE FORMACION BASICA</h1>
+        <form class="mb-4 flex flex-col md:flex-row" [formGroup]="myFormBasic" (ngSubmit)="onSubmitCourseBasic()" >
+            <label class="font-semibold mr-2" >INICIO:</label>
+            <input class="input mr-2" type="text" placeholder="inicio" formControlName="inicioBasic">
+            <label class="font-semibold mr-2">FIN:</label>
+            <input class="input mr-2" type="text" placeholder="fin" formControlName="finBasic">
+            <button class="btn btn-primary">Registrar Fecha Cursos</button>
+        </form>
+        <h1 class="font-bold text-2xl">CURSO DE PERFECCIONAMIENTO</h1>
+        <form class="flex flex-col md:flex-row"  [formGroup]="myFormPerfec"  (ngSubmit)="onSubmitCoursePerfec()">
+            
+            <label class="font-semibold mr-2">INICIO:</label>
+            <input class="input mr-2" type="text" placeholder="inicio" formControlName="inicioPerfec">
+            <label class="font-semibold mr-2">FIN:</label>
+            <input class="input mr-2" type="text" placeholder="fin" formControlName="finPerfec">
+            <button class="btn btn-primary">Registrar Fecha Cursos</button>
+        </form>
+    </section>
+</div>
