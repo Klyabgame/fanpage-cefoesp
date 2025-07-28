@@ -2,18 +2,14 @@ import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }), 
+    provideZoneChangeDetection({ eventCoalescing: true }),
     provideHttpClient(withFetch()),
-    provideRouter(routes),
-    {
-      provide:LocationStrategy,
-      useClass:HashLocationStrategy
-    }
+    provideRouter(routes), provideClientHydration(withEventReplay())
 
   ]
 };
