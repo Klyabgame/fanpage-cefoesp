@@ -36,7 +36,7 @@ jobs:
           SOURCE: "dist/fanpagecefoesp/" 
           REMOTE_HOST: ${{ secrets.VPS_HOST }}
           REMOTE_USER: ${{ secrets.SSH_USER }}
-          TARGET: "/var/www/www.cefoes.org.pe" 
+          TARGET: "/var/www/www.cefoesp.org.pe" 
 
       - name: Reiniciar el servicio SSR en el VPS
         uses: appleboy/ssh-action@master
@@ -46,5 +46,5 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             # 👈 CORREGIDO: Entramos a la carpeta y reiniciamos/arrancamos PM2 automáticamente
-            cd /var/www/www.cefoes.org.pe
+            cd /var/www/www.cefoesp.org.pe
             pm2 restart fanpagecefoesp || pm2 start server/server.mjs --name fanpagecefoesp
