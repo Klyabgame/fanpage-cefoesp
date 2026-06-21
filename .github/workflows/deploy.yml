@@ -46,4 +46,5 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd /var/www/www.cefoesp.org.pe
-            PORT=4001 /home/klyab/.nvm/versions/node/v20.16.0/bin/pm2 restart fanpagecefoesp --update-env || PORT=4001 /home/klyab/.nvm/versions/node/v20.16.0/bin/pm2 start server/server.mjs --name fanpagecefoesp --interpreter /home/klyab/.nvm/versions/node/v20.16.0/bin/node
+            /home/klyab/.nvm/versions/node/v20.16.0/bin/pm2 restart ecosystem.config.js --update-env || /home/klyab/.nvm/versions/node/v20.16.0/bin/pm2 start ecosystem.config.js
+            /home/klyab/.nvm/versions/node/v20.16.0/bin/pm2 save
