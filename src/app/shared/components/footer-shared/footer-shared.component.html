@@ -1,79 +1,141 @@
-<div class="bg-[#163168]">
-    <div class="w-full flex flex-col md:flex-row justify-center p-4">
-        <div class="w-full md:w-[50%]  flex flex-col justify-center">
-            <h1 class="font-bold text-white text-3xl text-center md:text-left">CEFOESP Seguridad Superior SAC</h1>
-            <p class="font-semibold text-[#AAAC3D]  md:w-[60%] text-lg text-center md:text-left">Empresa dedicada a brindar capacitaciones en el ámbito de la seguridad y
-                vigilancia privada.</p>
+<div class="bg-[#12264f] text-slate-300 font-sans border-t-4 border-[#AAAC3D]/80">
+  <!-- Top section with grid columns -->
+  <div class="max-w-7xl mx-auto px-4 pt-16 pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    
+    <!-- Col 1: Brand details -->
+    <div class="flex flex-col space-y-6">
+      <div class="flex items-center">
+        <div class="bg-white p-3.5 rounded-xl shadow-md border border-white/10 hover:scale-105 transition-transform duration-300 inline-block">
+          <app-img-skeleton [src]="environment.URL_LOGO_CEFOESP" alt="CEFOESP Logo" imgClass="h-16 w-auto object-contain" containerClass="h-16 w-40" skeletonClass="rounded-xl"></app-img-skeleton>
         </div>
-        <div class="w-full md:w-[35%]  mr-4">
-            <div #carousel class="p-4 h-40 carousel carousel-center w-full overflow-x-auto no-scrollbar
-         snap-x snap-mandatory space-x-4">
-                @for (src of images ; track src) {
-                <img [src]="src" alt="Burger 😋"
-                    class="carousel-item w-1/3 shrink-0 aspect-video object-cover rounded-box snap-start" />
-                }
-
-            </div>
-        </div>
+      </div>
+      <p class="text-sm leading-relaxed text-slate-300 font-normal">
+        CEFOESP es un Centro de Formación y Especialización en Seguridad Privada autorizado por SUCAMEC. Formamos profesionales de la seguridad con altos estándares de calidad y ética.
+      </p>
+      <!-- Social networks -->
+      <div class="flex items-center space-x-3 pt-2">
+        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook"
+           class="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-[#AAAC3D] hover:bg-[#AAAC3D] hover:text-[#12264f] hover:-translate-y-1 transition-all duration-300 text-white shadow-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M14.2 2.875A4.625 4.625 0 0 0 9.575 7.5v2.575H7.1c-.124 0-.225.1-.225.225v3.4c0 .124.1.225.225.225h2.475V20.9c0 .124.1.225.225.225h3.4c.124 0 .225-.1.225-.225v-6.975h2.497c.103 0 .193-.07.218-.17l.85-3.4a.225.225 0 0 0-.218-.28h-3.347V7.5a.775.775 0 0 1 .775-.775h2.6c.124 0 .225-.1.225-.225V3.1c0-.124-.1-.225-.225-.225z" />
+          </svg>
+        </a>
+        <a href="https://www.instagram.com" target="_blank" aria-label="Instagram"
+           class="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-[#AAAC3D] hover:bg-[#AAAC3D] hover:text-[#12264f] hover:-translate-y-1 transition-all duration-300 text-white shadow-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+            <g fill="none">
+              <path stroke="currentColor" stroke-width="2" d="M3 11c0-3.771 0-5.657 1.172-6.828S7.229 3 11 3h2c3.771 0 5.657 0 6.828 1.172S21 7.229 21 11v2c0 3.771 0 5.657-1.172 6.828S16.771 21 13 21h-2c-3.771 0-5.657 0-6.828-1.172S3 16.771 3 13z" />
+              <circle cx="16.5" cy="7.5" r="1.5" fill="currentColor" />
+              <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" />
+            </g>
+          </svg>
+        </a>
+        <a href="https://www.twitter.com" target="_blank" aria-label="Twitter / X"
+           class="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-[#AAAC3D] hover:bg-[#AAAC3D] hover:text-[#12264f] hover:-translate-y-1 transition-all duration-300 text-white shadow-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com" target="_blank" aria-label="YouTube"
+           class="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:border-[#AAAC3D] hover:bg-[#AAAC3D] hover:text-[#12264f] hover:-translate-y-1 transition-all duration-300 text-white shadow-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+            <path fill="currentColor" d="m10 15l5-3l-5-3zm2-11c-4.42 0-8 3.58-8 8s3.58 8 8 8s8-3.58 8-8s-3.58-8-8-8m0 14c-3.31 0-6-2.69-6-6s2.69-6 6-6s6 2.69 6 6s-2.69 6-6 6z" />
+          </svg>
+        </a>
+      </div>
     </div>
-    <div class="divider divider-secondary"></div>
-    <div class="flex gap-4 flex-col justify-center items-center ">
-        <div class="w-[20%] ">
-            <img class="" [src]="environment.URL_LOGO_CEFOESP" alt="">
-        </div>
-        <div class="w-full flex gap-2 md:gap-8 justify-center items-center ">
-            @for (item of routerTitle(); track item) {
-            <li class="font-semibold text-[#AAAC3D] text-xs hover:cursor-pointer hover:text-white list-none">
-                <a [routerLink]="item.path">{{item.title}}</a>
-            </li>
-            }
-        </div>
-        <div class="flex gap-4">
-            <a
-                class="border border-white/30 p-2 rounded-sm hover:cursor-pointer hover:bg-green-400 text-white transition-transform duration-150 hover:scale-90">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path fill="currentColor"
-                        d="M14.2 2.875A4.625 4.625 0 0 0 9.575 7.5v2.575H7.1c-.124 0-.225.1-.225.225v3.4c0 .124.1.225.225.225h2.475V20.9c0 .124.1.225.225.225h3.4c.124 0 .225-.1.225-.225v-6.975h2.497c.103 0 .193-.07.218-.17l.85-3.4a.225.225 0 0 0-.218-.28h-3.347V7.5a.775.775 0 0 1 .775-.775h2.6c.124 0 .225-.1.225-.225V3.1c0-.124-.1-.225-.225-.225z" />
-                </svg>
-            </a>
-            <a
-                class="border border-white/30 p-2 rounded-sm hover:cursor-pointer hover:bg-green-400 text-white transition-transform duration-150 hover:scale-90">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <g fill="none">
-                        <path stroke="currentColor" stroke-width="2"
-                            d="M3 11c0-3.771 0-5.657 1.172-6.828S7.229 3 11 3h2c3.771 0 5.657 0 6.828 1.172S21 7.229 21 11v2c0 3.771 0 5.657-1.172 6.828S16.771 21 13 21h-2c-3.771 0-5.657 0-6.828-1.172S3 16.771 3 13z" />
-                        <circle cx="16.5" cy="7.5" r="1.5" fill="currentColor" />
-                        <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" />
-                    </g>
-                </svg>
-            </a>
-            <a
-                class="border border-white/30 p-2 rounded-sm hover:cursor-pointer hover:bg-green-400 text-white transition-transform duration-150 hover:scale-90">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <g fill="none">
-                        <path
-                            d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
-                        <path fill="currentColor"
-                            d="M4.594 4.984a1 1 0 0 1 .941.429C7.011 7.572 8.783 8.47 10.75 8.674c.096-.841.323-1.672.75-2.404c.626-1.074 1.644-1.864 3.098-2.156c2.01-.404 3.54.324 4.427 1.215l1.792-.335a1 1 0 0 1 1.053 1.478l-1.72 3.022c.157 4.361-1.055 7.405-3.639 9.502c-1.37 1.112-3.332 1.743-5.485 1.938c-2.17.196-4.623-.041-7.061-.753a1 1 0 0 1 .007-1.922c1.226-.349 2.16-.65 3.003-1.177c-1.199-.636-2.082-1.468-2.707-2.416c-.868-1.318-1.19-2.788-1.254-4.113S3.141 8 3.343 7.115c.115-.505.249-1.011.434-1.495a1 1 0 0 1 .818-.636Z" />
-                    </g>
-                </svg>
-            </a>
-            <a
-                class="border border-white/30 p-2 rounded-sm hover:cursor-pointer hover:bg-green-400 text-white transition-transform duration-150 hover:scale-90">
 
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <g fill="none" fill-rule="evenodd">
-                        <path
-                            d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
-                        <path fill="currentColor"
-                            d="M12 4c.855 0 1.732.022 2.582.058l1.004.048l.961.057l.9.061l.822.064a3.8 3.8 0 0 1 3.494 3.423l.04.425l.075.91c.07.943.122 1.971.122 2.954s-.052 2.011-.122 2.954l-.075.91l-.04.425a3.8 3.8 0 0 1-3.495 3.423l-.82.063l-.9.062l-.962.057l-1.004.048A62 62 0 0 1 12 20a62 62 0 0 1-2.582-.058l-1.004-.048l-.961-.057l-.9-.062l-.822-.063a3.8 3.8 0 0 1-3.494-3.423l-.04-.425l-.075-.91A41 41 0 0 1 2 12c0-.983.052-2.011.122-2.954l.075-.91l.04-.425A3.8 3.8 0 0 1 5.73 4.288l.821-.064l.9-.061l.962-.057l1.004-.048A62 62 0 0 1 12 4m-2 5.575v4.85c0 .462.5.75.9.52l4.2-2.425a.6.6 0 0 0 0-1.04l-4.2-2.424a.6.6 0 0 0-.9.52Z" />
-                    </g>
-                </svg>
+    <!-- Col 2: Navigation Links -->
+    <div class="flex flex-col space-y-4">
+      <h2 class="text-[#AAAC3D] text-sm font-bold tracking-wider uppercase border-b border-white/10 pb-2">Navegación</h2>
+      <ul class="flex flex-col space-y-3">
+        @for (item of routerTitle(); track item) {
+          @if (item.title) {
+          <li>
+            <a [routerLink]="item.path" 
+               class="text-sm text-slate-300 hover:text-white hover:pl-2 flex items-center transition-all duration-300">
+              <span class="mr-2 text-[#AAAC3D]/80">›</span>
+              {{ item.title }}
             </a>
-        </div>
-        <div class="w-full mt-12">
-            <p class="font-semibold text-sm text-center text-white">Copyright © CEFOESP Seguridad Superior SAC 2025. All
-                rights reserved.</p>
-        </div>
+          </li>
+          }
+        }
+      </ul>
     </div>
-</div>
+
+    <!-- Col 3: Cursos SUCAMEC -->
+    <div class="flex flex-col space-y-4">
+      <h2 class="text-[#AAAC3D] text-sm font-bold tracking-wider uppercase border-b border-white/10 pb-2">Programas SUCAMEC</h2>
+      <ul class="flex flex-col space-y-3 text-sm">
+        <li>
+          <a routerLink="/cursos" class="hover:text-white flex flex-col group transition-all duration-300">
+            <span class="font-semibold text-slate-200 group-hover:text-[#AAAC3D] transition-colors duration-300">Formación Básica</span>
+            <span class="text-xs text-slate-400">Para aspirantes a vigilantes de seguridad (60 hrs)</span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/cursos" class="hover:text-white flex flex-col group transition-all duration-300">
+            <span class="font-semibold text-slate-200 group-hover:text-[#AAAC3D] transition-colors duration-300">Perfeccionamiento</span>
+            <span class="text-xs text-slate-400">Reentrenamiento bienal obligatorio (35 hrs)</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Col 4: Contacto -->
+    <div class="flex flex-col space-y-4">
+      <h2 class="text-[#AAAC3D] text-sm font-bold tracking-wider uppercase border-b border-white/10 pb-2">Contacto Oficial</h2>
+      <ul class="flex flex-col space-y-4 text-sm">
+        <li class="flex items-start space-x-3">
+          <svg class="w-5 h-5 text-[#AAAC3D] shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+          <div class="flex flex-col space-y-1">
+            <a href="https://wa.me/+51994875001" target="_blank" class="hover:text-white font-medium text-slate-200 transition-colors duration-200">+51 994 875 001</a>
+            <a href="https://wa.me/+51967051686" target="_blank" class="hover:text-white font-medium text-slate-200 transition-colors duration-200">+51 967 051 686</a>
+          </div>
+        </li>
+        <li class="flex items-start space-x-3">
+          <svg class="w-5 h-5 text-[#AAAC3D] shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <div>
+            <p class="font-medium text-slate-200">Lunes a Sábado</p>
+            <p class="text-xs text-slate-400">08:00 AM - 05:30 PM</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Middle strip: Dynamic Carousel Section -->
+  <div class="hidden md:block border-t border-white/5 bg-[#0e2147]/40 py-10">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
+      <div class="text-center mb-8">
+        <h3 class="text-xs font-bold uppercase tracking-widest text-[#AAAC3D] font-sans">Capacitación Acreditada y Autorizada por</h3>
+        <p class="text-xs text-slate-400 mt-1">Conforme a la normativa nacional de seguridad privada en el Perú</p>
+      </div>
+      
+      <!-- Carousel Container -->
+      <div class="relative w-full max-w-4xl overflow-hidden px-2">
+        <div #carousel class="flex items-center space-x-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory py-2">
+          @for (src of images; track src; let idx = $index) {
+          <div class="carousel-item w-60 h-32 rounded-2xl p-4 flex items-center justify-center shrink-0 snap-start border hover:scale-105 transition-all duration-300 group shadow-md"
+               [class]="(idx === 3) ? 'bg-white border-white/25' : 'bg-white/5 border-white/10 hover:border-[#AAAC3D]/40 hover:bg-white/10'">
+            <app-img-skeleton [src]="src" [alt]="'Acreditación y Convenio CEFOESP ' + (idx + 1)" imgClass="max-h-full max-w-full object-contain filter drop-shadow-md group-hover:brightness-110 transition-all duration-300" containerClass="w-full h-full flex items-center justify-center" skeletonClass="rounded-2xl"></app-img-skeleton>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom strip: copyright -->
+  <div class="bg-[#0b1b3b] border-t border-white/5 py-6 text-center text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>Copyright © {{ currentYear }} CEFOESP Seguridad Superior SAC. Todos los derechos reservados.</p>
+      <p class="text-slate-500">Autorizado por SUCAMEC | Especialistas en Seguridad Privada</p>
+    </div>
+  </div>
+</div>
