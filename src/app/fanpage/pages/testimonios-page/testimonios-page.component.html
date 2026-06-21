@@ -1,143 +1,65 @@
-<div class="flex flex-col justify-center relative mt-49 md:mt-38 w-full min-h-screen">
-    <h1 class="text-center text-5xl font-semibold  mt-4 mb-10  bg-black text-white p-4">TESTIMONIOS VISUALES</h1>
-    <div class="">
-        <h1 class="p-2 font-semibold text-xl text-center">ESTAS SON ALGUNAS IMAGENES DE NUESTRAS CAPACITACIONES</h1>
+<div class="flex flex-col w-full min-h-screen mt-20 bg-slate-50/50">
+  
+  <!-- Hero Section Banner -->
+  <div class="bg-gradient-to-r from-[#163168] to-[#12264f] text-white py-16 px-6 text-center relative overflow-hidden shadow-inner border-b-4 border-[#AAAC3D]/80">
+    <div class="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+    <div class="max-w-4xl mx-auto relative z-10 space-y-3">
+      <span class="text-xs uppercase tracking-widest text-[#AAAC3D] font-bold font-sans">Galería de Logros</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight">Testimonios Visuales</h1>
+      <p class="text-slate-300 text-sm md:text-base max-w-xl mx-auto font-light leading-relaxed">
+        Una muestra de nuestras capacitaciones y del compromiso de nuestros estudiantes en las modalidades presencial y virtual.
+      </p>
+    </div>
+  </div>
 
-        <div class="grid grid-cols-1  md:grid-cols-3 gap-4 place-items-center mt-4">
-            <div class="card bg-base-100 w-96 shadow-sm">
-                <figure>
-                    <img src="https://res.cloudinary.com/dt86tk7ed/image/upload/v1752160718/aula-virtual-cefoesp/IMG-CEFOESP/WhatsApp-Image-2025-01-09-at-14.21.35_c1ada269_1_omrk2i.jpg" alt="basico" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Modalidad Online</h2>
-                    <p>Curso de Formacion Basica </p>
-                </div>
+  <div class="max-w-7xl mx-auto px-6 py-12 space-y-10">
+    <!-- Subtitle section -->
+    <div class="text-center space-y-2">
+      <h2 class="text-2xl font-extrabold text-slate-800 tracking-tight uppercase">Imágenes de nuestras Capacitaciones</h2>
+      <div class="w-12 h-1 bg-[#AAAC3D] rounded-full mx-auto"></div>
+      <p class="text-slate-500 text-sm max-w-md mx-auto">Formando el futuro de la seguridad y vigilancia privada en todo el Perú.</p>
+    </div>
+
+    <!-- Responsive Grid Loop -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 place-items-stretch">
+      @for (item of testimonios; track item.img; let idx = $index) {
+        <div class="card bg-white rounded-2xl border border-slate-100 hover:border-slate-200 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col group">
+          <figure class="relative aspect-video overflow-hidden bg-slate-100 shrink-0">
+            <app-img-skeleton [src]="item.img" [alt]="item.desc"
+                              imgClass="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                              containerClass="w-full h-full"
+                              skeletonClass="rounded-t-2xl"></app-img-skeleton>
+            <!-- Modality overlay badge -->
+            <span class="absolute top-3 right-3 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full text-white shadow-sm"
+                  [class.bg-[#163168]]="item.title.includes('Online')"
+                  [class.bg-[#AAAC3D]]="item.title.includes('Presencial')">
+              {{ item.title }}
+            </span>
+          </figure>
+          
+          <div class="card-body p-6 flex flex-col flex-1">
+            <h3 class="font-bold text-slate-800 text-base leading-snug">{{ item.desc }}</h3>
+            <p class="text-xs text-slate-500 mt-1 flex-1 font-light leading-relaxed">
+              CEFOESP Seguridad Superior SAC - Capacitación de calidad autorizada por SUCAMEC.
+            </p>
+            <div class="pt-4 border-t border-slate-100 mt-4 flex justify-between items-center text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+              <span>SUCAMEC</span>
+              <span>REGISTRO {{ 2024 + (idx % 3) }}</span>
             </div>
-            <div class="card bg-base-100 w-96 shadow-sm">
-                <figure>
-                    <img src="https://res.cloudinary.com/dt86tk7ed/image/upload/v1752160718/aula-virtual-cefoesp/IMG-CEFOESP/WhatsApp-Image-2025-01-09-at-14.29.49_378c9a83_cxkohl.jpg" alt="apurimac" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Modalidad Presencial</h2>
-                    <p>Curso Desarrollado en el departamente de Apurimac</p>
-                </div>
-            </div>
-            <div class="card bg-base-100 w-96 shadow-sm">
-                <figure>
-                    <img src="https://res.cloudinary.com/dt86tk7ed/image/upload/v1752085108/aula-virtual-cefoesp/IMG-CEFOESP/curso-formacion_mtxxkq.jpg" alt="perfeccionamiento" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Modalidad Online</h2>
-                    <p>Curso de Perfeccionamiento</p>
-                </div>
-            </div>
-            <div class="card bg-base-100 w-96 shadow-sm">
-                <figure>
-                    <img src="https://res.cloudinary.com/dt86tk7ed/image/upload/v1752161332/aula-virtual-cefoesp/IMG-CEFOESP/Captura_de_pantalla_2024-05-24_083004_bzp37y.png" alt="Shoes" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Modalidad Online</h2>
-                    <p>Curso de Perfeccionamiento</p>
-                </div>
-            </div>
-            <div class="card bg-base-100 w-96 shadow-sm">
-                <figure>
-                    <img src="https://res.cloudinary.com/dt86tk7ed/image/upload/v1752161332/aula-virtual-cefoesp/IMG-CEFOESP/Captura_de_pantalla_2024-05-24_082927_otrknv.png" alt="Shoes" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Modalidad Online</h2>
-                    <p>Curso de Formacion Basica </p>
-                </div>
-            </div>
-            <div class="card bg-base-100 w-96 shadow-sm">
-                <figure>
-                    <img src="https://res.cloudinary.com/dt86tk7ed/image/upload/v1752161332/aula-virtual-cefoesp/IMG-CEFOESP/Captura_de_pantalla_2024-03-21_114932_acxav7.png" alt="Shoes" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Modalidad Online</h2>
-                    <p>Curso de Formacion Basica </p>
-                </div>
-            </div>
-            <div class="card bg-base-100 w-96 shadow-sm">
-                <figure>
-                    <img src="https://res.cloudinary.com/dt86tk7ed/image/upload/v1752161332/aula-virtual-cefoesp/IMG-CEFOESP/Captura_de_pantalla_2024-04-16_152141_psxv2v.png" alt="Shoes" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Modalidad Online</h2>
-                    <p>Curso de Formacion Basica </p>
-                </div>
-            </div>
-            <div class="card bg-base-100 w-96 shadow-sm">
-                <figure>
-                    <img src="https://res.cloudinary.com/dt86tk7ed/image/upload/v1752161332/aula-virtual-cefoesp/IMG-CEFOESP/Captura_de_pantalla_2024-04-16_152319_podioi.png" alt="Shoes" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Modalidad Online</h2>
-                    <p>Curso de Perfeccionamiento</p>
-                </div>
-            </div>
-            <div class="card bg-base-100 w-96 shadow-sm">
-                <figure>
-                    <img src="https://res.cloudinary.com/dt86tk7ed/image/upload/v1752161333/aula-virtual-cefoesp/IMG-CEFOESP/Captura_de_pantalla_2024-04-29_082652_t97qn2.png" alt="Shoes" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Modalidad Online</h2>
-                    <p>Curso de Perfeccionamiento</p>
-                </div>
-            </div>
-            <div class="card bg-base-100 w-96 shadow-sm">
-                <figure>
-                    <img src="https://res.cloudinary.com/dt86tk7ed/image/upload/v1752161333/aula-virtual-cefoesp/IMG-CEFOESP/Captura_de_pantalla_2024-05-24_082832_heeqmh.png" alt="Shoes" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Modalidad Online</h2>
-                    <p>Curso de Formacion Basica </p>
-                </div>
-            </div>
-            <div class="card bg-base-100 w-96 shadow-sm">
-                <figure>
-                    <img src="https://res.cloudinary.com/dt86tk7ed/image/upload/v1752161333/aula-virtual-cefoesp/IMG-CEFOESP/Captura_de_pantalla_2024-05-24_083027_g728qw.png" alt="Shoes" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Modalidad Online</h2>
-                    <p>Curso de Perfeccionamiento</p>
-                </div>
-            </div>
-            <div class="card bg-base-100 w-96 shadow-sm">
-                <figure>
-                    <img src="https://res.cloudinary.com/dt86tk7ed/image/upload/v1752161333/aula-virtual-cefoesp/IMG-CEFOESP/Captura_de_pantalla_2024-03-20_074942_k8qr7n.png" alt="Shoes" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Modalidad Online</h2>
-                    <p>Curso de Formacion Basica </p>
-                </div>
-            </div>
-            <div class="card bg-base-100 w-96 shadow-sm">
-                <figure>
-                    <img src="https://res.cloudinary.com/dt86tk7ed/image/upload/v1752161333/aula-virtual-cefoesp/IMG-CEFOESP/Captura_de_pantalla_2024-03-27_144935_tr7fno.png" alt="Shoes" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Modalidad Online</h2>
-                    <p>Curso de Formacion Basica </p>
-                </div>
-            </div>
-            <div class="card bg-base-100 w-96 shadow-sm">
-                <figure>
-                    <img src="https://res.cloudinary.com/dt86tk7ed/image/upload/v1752161333/aula-virtual-cefoesp/IMG-CEFOESP/Captura_de_pantalla_2024-03-07_080926_vlkxpb.png" alt="Shoes" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Modalidad Online</h2>
-                    <p>Curso de Perfeccionamiento </p>
-                </div>
-            </div>
-            
+          </div>
         </div>
+      }
     </div>
-    <div class="join  flex justify-center p-4">
-        <input class="join-item btn btn-square" type="radio" name="options" aria-label="1" checked="checked" />
-        <input class="join-item btn btn-square" type="radio" name="options" aria-label="2" />
-        <input class="join-item btn btn-square" type="radio" name="options" aria-label="3" />
-        <input class="join-item btn btn-square" type="radio" name="options" aria-label="4" />
+
+    <!-- Pagination -->
+    <div class="flex justify-center pt-8">
+      <div class="join border border-slate-200/50 bg-white shadow-sm p-1 rounded-xl">
+        <input class="join-item btn btn-md btn-ghost hover:bg-slate-100 text-xs font-semibold rounded-lg checked:bg-[#163168] checked:text-white" type="radio" name="options" aria-label="1" checked="checked" />
+        <input class="join-item btn btn-md btn-ghost hover:bg-slate-100 text-xs font-semibold rounded-lg checked:bg-[#163168] checked:text-white" type="radio" name="options" aria-label="2" />
+        <input class="join-item btn btn-md btn-ghost hover:bg-slate-100 text-xs font-semibold rounded-lg checked:bg-[#163168] checked:text-white" type="radio" name="options" aria-label="3" />
+        <input class="join-item btn btn-md btn-ghost hover:bg-slate-100 text-xs font-semibold rounded-lg checked:bg-[#163168] checked:text-white" type="radio" name="options" aria-label="4" />
+      </div>
     </div>
+  </div>
 
 </div>

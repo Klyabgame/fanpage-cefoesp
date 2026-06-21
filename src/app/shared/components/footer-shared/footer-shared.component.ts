@@ -4,10 +4,11 @@ import FanpageRoutes from '../../../fanpage/fanpage.routes';
 import { Route, RouterLink } from '@angular/router';
 import { interval } from 'rxjs';
 import { isPlatformBrowser } from '@angular/common';
+import { ImgSkeletonComponent } from '../img-skeleton/img-skeleton.component';
 
 @Component({
   selector: 'shared-footer-shared',
-  imports: [RouterLink],
+  imports: [RouterLink, ImgSkeletonComponent],
   templateUrl: './footer-shared.component.html',
   styles: ``
 })
@@ -17,6 +18,7 @@ export class FooterSharedComponent  {
   router = FanpageRoutes;
   private plaform = inject(PLATFORM_ID);
   routerTitle = signal<Route[] | []>(this.router[0].children ?? []);
+  readonly currentYear = new Date().getFullYear();
 
   readonly images = [
     'https://res.cloudinary.com/dt86tk7ed/image/upload/v1751924089/aula-virtual-cefoesp/carousel-cefoesp/pc-security_1_w7xpgi.png',
@@ -37,7 +39,7 @@ export class FooterSharedComponent  {
         const itemWidth = host.scrollWidth / this.images.length;
         const sub = interval(2000).subscribe(() => {
           host.scrollBy({ left: itemWidth, behavior: 'smooth' });
-          if (host.scrollLeft + host.clientWidth >= host.scrollWidth) {
+          if (host.scrollLeft + host.clientWidth >= host.scrollWidth - 10) {
             host.scrollTo({ left: 0 });
           }
         });
