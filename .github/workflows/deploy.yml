@@ -26,7 +26,7 @@ jobs:
         run: npm run test
 
       - name: Compilar aplicación (SSR)
-        run: npx ng build # 👈 CORREGIDO: Compila directo sin disparar el test infinito de tu package.json
+        run: npx ng build 
 
       - name: Desplegar en el VPS vía SSH/Rsync
         uses: easingthemes/ssh-deploy@main
@@ -46,4 +46,4 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd /var/www/www.cefoesp.org.pe
-            PORT=4001 /home/klyab/.nvm/versions/node/v20.16.0/bin/pm2 restart fanpagecefoesp --update-env || PORT=4001 /home/klyab/.nvm/versions/node/v20.16.0/bin/pm2 start server/server.mjs --name fanpagecefoesp
+            PORT=4001 /home/klyab/.nvm/versions/node/v20.16.0/bin/pm2 restart fanpagecefoesp --update-env || PORT=4001 /home/klyab/.nvm/versions/node/v20.16.0/bin/pm2 start server/server.mjs --name fanpagecefoesp --interpreter /home/klyab/.nvm/versions/node/v20.16.0/bin/node
