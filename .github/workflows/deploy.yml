@@ -47,4 +47,4 @@ jobs:
           script: |
             # 👈 CORREGIDO: Entramos a la carpeta y reiniciamos/arrancamos PM2 automáticamente
             cd /var/www/www.cefoesp.org.pe
-            pm2 restart fanpagecefoesp || pm2 start server/server.mjs --name fanpagecefoesp
+            /home/klyab/.nvm/versions/node/v20.16.0/bin/pm2 restart fanpagecefoesp || /home/klyab/.nvm/versions/node/v20.16.0/bin/pm2 start server/server.mjs --name fanpagecefoesp
