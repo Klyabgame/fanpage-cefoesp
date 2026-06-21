@@ -45,7 +45,5 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            # 👈 CORREGIDO: Entramos a la carpeta y reiniciamos/arrancamos PM2 automáticamente
             cd /var/www/www.cefoesp.org.pe
-            # Inyectamos el puerto 4001 y usamos --update-env para que PM2 reconozca el cambio de puerto si se reinicia
             PORT=4001 /home/klyab/.nvm/versions/node/v20.16.0/bin/pm2 restart fanpagecefoesp --update-env || PORT=4001 /home/klyab/.nvm/versions/node/v20.16.0/bin/pm2 start server/server.mjs --name fanpagecefoesp
