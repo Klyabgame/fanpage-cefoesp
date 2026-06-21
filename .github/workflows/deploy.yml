@@ -1,0 +1,50 @@
+name: Deploy Angular SSR to VPS
+
+on:
+  push:
+    branches:
+      - main # O master, cambia según tu rama principal
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Versión recomendada para Angular 19
+          cache: 'npm'
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Ejecutar pruebas unitarias
+        run: npm run test
+
+      - name: Compilar aplicación (SSR)
+        run: npx ng build # 👈 CORREGIDO: Compila directo sin disparar el test infinito de tu package.json
+
+      - name: Desplegar en el VPS vía SSH/Rsync
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_KEY }}
+          ARGS: "-rlgoDzvc --delete" 
+          SOURCE: "dist/fanpagecefoesp/" 
+          REMOTE_HOST: ${{ secrets.VPS_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USER }}
+          TARGET: "/var/www/www.cefoes.org.pe" 
+
+      - name: Reiniciar el servicio SSR en el VPS
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            # 👈 CORREGIDO: Entramos a la carpeta y reiniciamos/arrancamos PM2 automáticamente
+            cd /var/www/www.cefoes.org.pe
+            pm2 restart fanpagecefoesp || pm2 start server/server.mjs --name fanpagecefoesp
