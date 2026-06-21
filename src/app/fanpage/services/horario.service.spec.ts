@@ -4,6 +4,7 @@ import { HorarioService } from "./horario.service";
 import { provideHttpClient } from '@angular/common/http';
 import { Horario } from '../interfaces/horario.interface';
 import { environment } from '../../../environments/environment';
+import { FechasCursos } from '../../shared/utils';
 
 const mockCourseBasicResponse: Horario[] = [
     {
@@ -90,13 +91,13 @@ describe('horarioService', () => {
 
     });
 
-    it('should throw an error when having an empty array - getCourseBasic', () => {
+    it('should return fallback when having an empty array - getCourseBasic', () => {
 
-        service.getCourseBasic().subscribe({
-            next: () => fail('Deberia haber fallado con array vacio'),
-            error: (err) => {
-                expect(err.message).toContain('No se encontro informacion de horarios');
-            }
+        service.getCourseBasic().subscribe((horario) => {
+            expect(horario).toEqual({
+                inicio: FechasCursos.fechaCursoBasico.INICIO,
+                fin: FechasCursos.fechaCursoBasico.FIN
+            });
         })
 
         const req = httpMock.expectOne(`${environment.URL_API_BACK_FANPAGE_HORARIO}/basic`);
@@ -110,13 +111,13 @@ describe('horarioService', () => {
     });
 
 
-    it('should throw error if http request fails - getCourseBasic', () => {
+    it('should return fallback if http request fails - getCourseBasic', () => {
 
-        service.getCourseBasic().subscribe({
-            next: () => fail('Deberia haber fallado con error HTTP'),
-            error: (err) => {
-                expect(err.message).toContain('No se puedo obtener el horario del Curso Basico');
-            }
+        service.getCourseBasic().subscribe((horario) => {
+            expect(horario).toEqual({
+                inicio: FechasCursos.fechaCursoBasico.INICIO,
+                fin: FechasCursos.fechaCursoBasico.FIN
+            });
         })
 
         const req = httpMock.expectOne(`${environment.URL_API_BACK_FANPAGE_HORARIO}/basic`);
@@ -154,13 +155,13 @@ describe('horarioService', () => {
 
     });
 
-    it('should throw if first element misses required fields - getCourseBasic', () => {
+    it('should return fallback if first element misses required fields - getCourseBasic', () => {
 
-        service.getCourseBasic().subscribe({
-            next: () => fail('debió fallar por objeto incompleto'),
-            error: (err) => {
-                expect(err.message).toContain('No se encontro completa la informacion de horarios');
-            }
+        service.getCourseBasic().subscribe((horario) => {
+            expect(horario).toEqual({
+                inicio: FechasCursos.fechaCursoBasico.INICIO,
+                fin: FechasCursos.fechaCursoBasico.FIN
+            });
         })
 
         const req = httpMock.expectOne(`${environment.URL_API_BACK_FANPAGE_HORARIO}/basic`);
@@ -191,13 +192,13 @@ describe('horarioService', () => {
 
     });
 
-    it('should throw an error when having an empty array - getCoursePerfec', () => {
+    it('should return fallback when having an empty array - getCoursePerfec', () => {
 
-        service.getCoursePerfec().subscribe({
-            next: () => fail('Deberia haber fallado con array vacio'),
-            error: (err) => {
-                expect(err.message).toContain('No se encontro informacion de horarios');
-            }
+        service.getCoursePerfec().subscribe((horario) => {
+            expect(horario).toEqual({
+                inicio: FechasCursos.fechaCursoPerfeccionamiento.INICIO,
+                fin: FechasCursos.fechaCursoPerfeccionamiento.FIN
+            });
         })
 
         const req = httpMock.expectOne(`${environment.URL_API_BACK_FANPAGE_HORARIO}/perfec`);
@@ -211,13 +212,13 @@ describe('horarioService', () => {
     });
 
 
-    it('should throw error if http request fails - getCoursePerfec', () => {
+    it('should return fallback if http request fails - getCoursePerfec', () => {
 
-        service.getCoursePerfec().subscribe({
-            next: () => fail('Deberia haber fallado con error HTTP'),
-            error: (err) => {
-                expect(err.message).toContain('No se puedo obtener el horario del Curso de Perfecionamiento');
-            }
+        service.getCoursePerfec().subscribe((horario) => {
+            expect(horario).toEqual({
+                inicio: FechasCursos.fechaCursoPerfeccionamiento.INICIO,
+                fin: FechasCursos.fechaCursoPerfeccionamiento.FIN
+            });
         })
 
         const req = httpMock.expectOne(`${environment.URL_API_BACK_FANPAGE_HORARIO}/perfec`);
@@ -255,13 +256,13 @@ describe('horarioService', () => {
 
     });
 
-    it('should throw if first element misses required fields - getCoursePerfec', () => {
+    it('should return fallback if first element misses required fields - getCoursePerfec', () => {
 
-        service.getCoursePerfec().subscribe({
-            next: () => fail('debió fallar por objeto incompleto'),
-            error: (err) => {
-                expect(err.message).toContain('No se encontro completa la informacion de horarios');
-            }
+        service.getCoursePerfec().subscribe((horario) => {
+            expect(horario).toEqual({
+                inicio: FechasCursos.fechaCursoPerfeccionamiento.INICIO,
+                fin: FechasCursos.fechaCursoPerfeccionamiento.FIN
+            });
         })
 
         const req = httpMock.expectOne(`${environment.URL_API_BACK_FANPAGE_HORARIO}/perfec`);
